@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel PJ | Pemilihan OSIS</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="pj.css">
+</head>
+<body class="pj-page">
+  <header class="pj-header">
+    <a class="pj-brand" href="../index.html" aria-label="Kembali ke halaman pemilihan">
+      <img src="../assets/logo_transparan.webp" alt="Logo sekolah">
+      <span>Panel PJ</span>
+    </a>
+    <img class="pj-osis-logo" src="../assets/OSIS Logo - Colored - 2048x2048 - zonalogo.com.png" alt="Logo OSIS">
+  </header>
+
+  <main class="pj-main">
+    <section id="pjLogin" class="pj-login pj-panel" aria-labelledby="loginTitle">
+      <p class="eyebrow">AKSES TERBATAS</p>
+      <h1 id="loginTitle">Masuk sebagai PJ</h1>
+      <p class="pj-copy">Pantau rekap suara pemilihan secara langsung.</p>
+      <form id="pjLoginForm" class="pj-form">
+        <label for="pjUsername">Username</label>
+        <input id="pjUsername" name="username" autocomplete="username" required>
+        <label for="pjPassword">Password</label>
+        <input id="pjPassword" name="password" type="password" autocomplete="current-password" required>
+        <button class="primary" type="submit">Masuk</button>
+      </form>
+      <p id="pjLoginMessage" class="pj-message" role="alert"></p>
+    </section>
+
+    <section id="pjDashboard" class="pj-dashboard" hidden aria-labelledby="dashboardTitle">
+      <div class="pj-dashboard-heading">
+        <div>
+          <p class="eyebrow">RUANG KONTROL</p>
+          <h1 id="dashboardTitle">Live Hasil Pemilihan OSIS</h1>
+          <p id="pjUpdatedAt" class="pj-updated">Belum ada pembaruan.</p>
+        </div>
+        <div class="pj-actions">
+          <span class="live-indicator"><span aria-hidden="true">●</span> LIVE</span>
+          <button id="pjLogout" class="secondary" type="button">Keluar</button>
+        </div>
+      </div>
+
+      <div class="pj-summary-grid">
+        <article class="pj-stat"><span>Total Pemilih</span><strong id="totalVotes">0</strong></article>
+        <article class="pj-stat"><span>Suara Siswa</span><strong id="studentVotes">0</strong></article>
+        <article class="pj-stat"><span>Suara Guru</span><strong id="teacherVotes">0</strong></article>
+      </div>
+
+      <section class="pj-results" aria-labelledby="candidateResultsTitle">
+        <div class="pj-results-heading">
+          <p class="eyebrow">REKAP SUARA</p>
+          <h2 id="candidateResultsTitle">Perolehan Kandidat</h2>
+        </div>
+        <div class="pj-candidate-list">
+          <article class="pj-candidate-result">
+            <div class="pj-result-label"><strong>Kandidat 1</strong><span id="candidate1">0 suara</span></div>
+            <div class="pj-bar"><span id="candidate1Bar"></span></div>
+          </article>
+          <article class="pj-candidate-result">
+            <div class="pj-result-label"><strong>Kandidat 2</strong><span id="candidate2">0 suara</span></div>
+            <div class="pj-bar"><span id="candidate2Bar"></span></div>
+          </article>
+          <article class="pj-candidate-result">
+            <div class="pj-result-label"><strong>Kandidat 3</strong><span id="candidate3">0 suara</span></div>
+            <div class="pj-bar"><span id="candidate3Bar"></span></div>
+          </article>
+        </div>
+      </section>
+      <section class="pj-distribution" aria-labelledby="distributionTitle">
+        <div class="pj-distribution-heading">
+          <p class="eyebrow">KOMPOSISI SUARA</p>
+          <h2 id="distributionTitle">Distribusi Suara</h2>
+        </div>
+        <div class="pj-distribution-content">
+          <div class="pj-donut-wrap">
+            <svg class="pj-donut" viewBox="0 0 42 42" role="img" aria-labelledby="donutTitle donutDescription">
+              <title id="donutTitle">Distribusi suara kandidat</title>
+              <desc id="donutDescription">Diagram lingkaran perolehan suara Kandidat 1, 2, dan 3.</desc>
+              <circle class="pj-donut-track" cx="21" cy="21" r="15.9155" pathLength="100"></circle>
+              <circle id="candidate1Donut" class="pj-donut-segment pj-donut-candidate-1" cx="21" cy="21" r="15.9155" pathLength="100"></circle>
+              <circle id="candidate2Donut" class="pj-donut-segment pj-donut-candidate-2" cx="21" cy="21" r="15.9155" pathLength="100"></circle>
+              <circle id="candidate3Donut" class="pj-donut-segment pj-donut-candidate-3" cx="21" cy="21" r="15.9155" pathLength="100"></circle>
+            </svg>
+            <div class="pj-donut-center"><strong id="donutTotalVotes">0</strong><span>total suara</span></div>
+          </div>
+          <div class="pj-donut-legend" aria-label="Legenda distribusi suara">
+            <div class="pj-legend-item"><span class="pj-legend-color pj-legend-color-1"></span><div><strong>Kandidat 1</strong><span id="candidate1Percentage">0%</span></div><b id="candidate1LegendVotes">0 suara</b></div>
+            <div class="pj-legend-item"><span class="pj-legend-color pj-legend-color-2"></span><div><strong>Kandidat 2</strong><span id="candidate2Percentage">0%</span></div><b id="candidate2LegendVotes">0 suara</b></div>
+            <div class="pj-legend-item"><span class="pj-legend-color pj-legend-color-3"></span><div><strong>Kandidat 3</strong><span id="candidate3Percentage">0%</span></div><b id="candidate3LegendVotes">0 suara</b></div>
+          </div>
+        </div>
+      </section>
+      <p id="pjDataMessage" class="pj-message" role="status"></p>
+    </section>
+  </main>
+
+  <script src="pj.js"></script>
+</body>
+</html>
