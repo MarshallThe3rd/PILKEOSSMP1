@@ -27,6 +27,16 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
 .page-logos { position: absolute; top: 24px; right: 32px; z-index: 2; display: flex; align-items: center; gap: 8px; }
 .page-logos img { width: 34px; height: 34px; object-fit: contain; }
 
+/* Decorative home photography stays outside the voting controls. */
+.home-photo-rail { position: absolute; top: clamp(140px, 18vh, 210px); z-index: 0; display: grid; gap: 20px; width: 190px; pointer-events: none; }
+.home-photo-rail-left { left: clamp(18px, 4vw, 72px); }
+.home-photo-rail-right { right: clamp(18px, 4vw, 72px); padding-top: 62px; }
+.activity-photo { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--cloud); box-shadow: 0 12px 28px rgba(17, 17, 17, .10); transform: rotate(-3deg); }
+.home-photo-rail-right .activity-photo { transform: rotate(3deg); }
+.activity-photo-small { width: 140px; }
+.activity-photo-tall { width: 190px; }
+.activity-photo img { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: saturate(.8); }
+
 .hero { max-width: 1240px; min-height: calc(100vh - 80px); margin: 0 auto; padding: clamp(48px, 9vh, 104px) 0 50px; text-align: center; display: flex; flex-direction: column; align-items: center; }
 .school-logo { width: 88px; height: 88px; margin: 0 auto 28px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--line); border-radius: 50%; background: var(--cloud); }
 .school-logo img { width: 78%; height: 78%; object-fit: contain; display: block; }
@@ -100,13 +110,27 @@ input:focus, select:focus { border: 2px solid var(--ink); box-shadow: 0 0 0 8px 
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes page-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-@media (max-width: 900px) { .candidate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1100px) {
+  .home-photo-rail { width: 138px; }
+  .home-photo-rail-left { left: 14px; }
+  .home-photo-rail-right { right: 14px; }
+  .activity-photo-tall { width: 138px; }
+  .activity-photo-small { width: 104px; }
+}
+@media (max-width: 900px) {
+  .candidate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-photo-rail-right .activity-photo-small { display: none; }
+}
 @media (max-width: 650px) {
   .screen { padding: 16px 16px 40px; }
   .page-logos { top: 16px; right: 16px; gap: 5px; }
   .page-logos img { width: 28px; height: 28px; }
   .hero { min-height: calc(100vh - 56px); padding: 42px 0 24px; }
   .hero h1 { font-size: clamp(44px, 14vw, 68px); }
+  .home-photo-rail { position: relative; top: auto; right: auto; left: auto; width: 100%; display: flex; justify-content: center; order: 0; padding: 8px 0 0; }
+  .home-photo-rail-left { display: none; }
+  .home-photo-rail-right { padding-top: 0; }
+  .home-photo-rail-right .activity-photo-tall { width: 120px; }
   .choice-grid, .candidate-grid { grid-template-columns: 1fr; }
   .choice-card { min-height: 150px; }
   .narrow { margin: 24px auto; padding: 24px; }

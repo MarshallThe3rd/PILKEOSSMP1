@@ -6,8 +6,8 @@
  * Isi API_URL dengan URL Web App Google Apps Script.
  * Backend Code.gs di bawah menerima request JSON.
  */
-const DEMO_MODE = true;
-const API_URL = "PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const DEMO_MODE = false;
+const API_URL = "https://script.google.com/macros/s/AKfycbwcanKYPNFhfW0YhGl5kbLVXkbME2_QfQ6fTp-83N2xZGM6ah0g_F1h7FUwUnjU5UZN/exec";
 
 const CONFIG = {
   electionTitle: "Pemilihan Ketua dan Wakil Ketua OSIS",
