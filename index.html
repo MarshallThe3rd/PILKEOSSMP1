@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemilihan Ketua OSIS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <section id="home" class="screen active">
+      <div class="page-logos" aria-label="Logo sekolah dan OSIS">
+        <img src="assets/logo_transparan.webp" alt="Logo sekolah">
+        <img src="assets/OSIS Logo - Colored - 2048x2048 - zonalogo.com.png" alt="Logo OSIS">
+      </div>
+      <div class="hero">
+        <p class="eyebrow">PEMILIHAN OSIS</p>
+        <h1 id="electionTitle">Memuat...</h1>
+        <h2 id="schoolName">Memuat...</h2>
+        <p id="period" class="muted"></p>
+        <p class="lead">Siapakah Anda?</p>
+        <div class="choice-grid">
+          <button class="choice-card" data-category="MURID">
+            <span class="choice-icon">🎓</span>
+            <span class="choice-title">Murid</span>
+            <span class="choice-desc">Gunakan NIS dan Kelas</span>
+          </button>
+          <button class="choice-card" data-category="GURU">
+            <span class="choice-icon">👨‍🏫</span>
+            <span class="choice-title">Guru</span>
+            <span class="choice-desc">Gunakan NIP / ID Guru</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="identity" class="screen">
+      <div class="page-logos" aria-label="Logo sekolah dan OSIS">
+        <img src="assets/logo_transparan.webp" alt="Logo sekolah">
+        <img src="assets/OSIS Logo - Colored - 2048x2048 - zonalogo.com.png" alt="Logo OSIS">
+      </div>
+      <div class="panel narrow">
+        <button class="link-button" id="backHome">Kembali</button>
+        <div class="section-heading">
+          <p class="eyebrow">DATA PEMILIH</p>
+          <h2 id="identityTitle">Data Murid</h2>
+          <p id="identityDesc" class="muted"></p>
+        </div>
+        <form id="identityForm">
+          <label id="identityLabel" for="identityInput">NIS</label>
+          <input id="identityInput" required autocomplete="off" placeholder="Masukkan NIS">
+          <div id="classField">
+            <label for="classInput">Kelas</label>
+            <select id="classInput" required>
+              <option value="">Pilih kelas</option>
+            </select>
+          </div>
+          <button class="primary" type="submit">Lanjutkan</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="candidates" class="screen">
+      <div class="page-logos" aria-label="Logo sekolah dan OSIS">
+        <img src="assets/logo_transparan.webp" alt="Logo sekolah">
+        <img src="assets/OSIS Logo - Colored - 2048x2048 - zonalogo.com.png" alt="Logo OSIS">
+      </div>
+      <div class="section-heading center">
+        <p class="eyebrow">SURAT SUARA</p>
+        <h2>Pilih Pasangan Calon</h2>
+        <p class="muted">Pilih satu pasangan Ketua dan Wakil Ketua OSIS.</p>
+      </div>
+      <div id="candidateGrid" class="candidate-grid"></div>
+    </section>
+
+    <section id="success" class="screen">
+      <div class="page-logos" aria-label="Logo sekolah dan OSIS">
+        <img src="assets/logo_transparan.webp" alt="Logo sekolah">
+        <img src="assets/OSIS Logo - Colored - 2048x2048 - zonalogo.com.png" alt="Logo OSIS">
+      </div>
+      <div class="success-box">
+        <div class="success-icon">✓</div>
+        <p class="eyebrow">PEMILIHAN SELESAI</p>
+        <h2>Suara berhasil direkam</h2>
+        <p class="muted">Terima kasih telah menggunakan hak suara Anda.</p>
+        <p class="countdown">Kembali ke halaman utama dalam <strong id="countdown">3</strong> detik.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="confirmModal" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" id="cancelConfirm">×</button>
+      <p class="eyebrow">KONFIRMASI</p>
+      <h2>Yakin dengan pilihan Anda?</h2>
+      <div id="selectedCandidate" class="selected-candidate"></div>
+      <p class="warning">Suara yang sudah dikirim tidak dapat diubah.</p>
+      <div class="modal-actions">
+        <button class="secondary" id="cancelConfirm2">Kembali</button>
+        <button class="primary" id="submitVote">Ya, Kirim Suara</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <div id="loading" class="loading hidden">
+    <div class="spinner"></div>
+    <p>Memproses...</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
