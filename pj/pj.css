@@ -122,7 +122,7 @@ body.pj-page {
 .pj-donut { display: block; width: 100%; height: 100%; transform: rotate(-90deg); }
 .pj-donut circle { fill: none; stroke-width: 5; }
 .pj-donut-track { stroke: #eeeeee; }
-.pj-donut-segment { stroke-linecap: butt; stroke-dasharray: 0 100; stroke-dashoffset: 0; transition: stroke-dasharray .6s ease, stroke-dashoffset .6s ease; }
+.pj-donut-segment { stroke-linecap: butt; transition: stroke-dasharray .6s ease, stroke-dashoffset .6s ease; }
 .pj-donut-candidate-1 { stroke: #007d48; }
 .pj-donut-candidate-2 { stroke: #1151ff; }
 .pj-donut-candidate-3 { stroke: #d30005; }
