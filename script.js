@@ -43,9 +43,9 @@ function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.re
 function startIdentity(category){
   state.category=category;
   $("identityTitle").textContent=category==="MURID"?"Data Murid":"Data Guru";
-  $("identityDesc").textContent=category==="MURID"?"Masukkan NIS dan kelas Anda.":"Masukkan NIP atau ID Guru Anda.";
-  $("identityLabel").textContent=category==="MURID"?"NIS":"NIP / ID Guru";
-  $("identityInput").placeholder=category==="MURID"?"MASUKKAN NIS":"Masukkan NIP / ID Guru";
+  $("identityDesc").textContent=category==="MURID"?"Masukkan NIS dan kelas Anda.":"Masukkan KODE GURU Anda.";
+  $("identityLabel").textContent=category==="MURID"?"NIS":"KODE GURU";
+  $("identityInput").placeholder=category==="MURID"?"MASUKKAN NIS":"Masukkan KODE GURU";
   $("classField").style.display=category==="MURID"?"block":"none";
   $("classInput").required=category==="MURID";
   show("identity");
