@@ -37,12 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
   $("cancelConfirm").onclick = closeModal;
   $("cancelConfirm2").onclick = closeModal;
   $("submitVote").onclick = submitVote;
+  $("identityInput").addEventListener("input", e => {
+    if(state.category === "MURID") e.target.value=e.target.value.replace(/\D/g,"");
+  });
 });
 
 function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));$(id).classList.add("active");scrollTo(0,0)}
 function startIdentity(category){
   state.category=category;
-  $("identityTitle").textContent=category==="MURID"?"Data Murid":"Data Guru";
+  $("identityTitle").textContent=category==="MURID"?"Data Siswa":"Data Guru dan Staff";
   $("identityDesc").textContent=category==="MURID"?"Masukkan NIS dan kelas Anda.":"Masukkan KODE GURU Anda.";
   $("identityLabel").textContent=category==="MURID"?"NIS":"KODE GURU";
   $("identityInput").placeholder=category==="MURID"?"MASUKKAN NIS":"Masukkan KODE GURU";
@@ -67,7 +70,7 @@ function renderCandidates(){
   $("candidateGrid").innerHTML=CONFIG.candidates.map(c=>`
     <article class="candidate">
       <div class="candidate-top">
-        <div class="number">PASANGAN CALON</div>
+        <div class="number">PASLON</div>
         <h3>NOMOR ${c.number}</h3>
         <div class="people">
           <div class="person"><img src="${attr(c.chairmanPhoto)}" alt="Ketua"><div class="person-name">${esc(c.chairman)}</div><div class="person-role">Ketua</div></div>
@@ -78,13 +81,13 @@ function renderCandidates(){
         <strong>VISI</strong><p>${esc(c.vision)}</p>
         <strong>MISI</strong><ul>${c.mission.map(m=>`<li>${esc(m)}</li>`).join("")}</ul>
       </div>
-      <button class="vote" data-number="${c.number}">PILIH PASANGAN ${c.number}</button>
+      <button class="vote" data-number="${c.number}">PILIH PASLON ${c.number}</button>
     </article>`).join("");
   document.querySelectorAll(".vote").forEach(b=>b.onclick=()=>openConfirm(Number(b.dataset.number)));
 }
 function openConfirm(number){
   state.selected=CONFIG.candidates.find(c=>c.number===number);
-  $("selectedCandidate").innerHTML=`PASANGAN NOMOR ${state.selected.number}<br><small>${esc(state.selected.chairman)} & ${esc(state.selected.viceChairman)}</small>`;
+  $("selectedCandidate").innerHTML=`PASLON NOMOR ${state.selected.number}<br><small>${esc(state.selected.chairman)} & ${esc(state.selected.viceChairman)}</small>`;
   $("confirmModal").classList.remove("hidden");
 }
 function closeModal(){$("confirmModal").classList.add("hidden")}

@@ -9,28 +9,28 @@
 <body>
   <main id="app">
     <section id="home" class="screen active">
-      <div class="page-logos" aria-label="Logo sekolah dan OSIS">
+      <div class="page-logos home-page-logos" aria-label="Logo sekolah dan OSIS">
         <img src="assets/logo_transparan.webp" alt="Logo sekolah">
         <img src="assets/OSIS Logo - Colored - 2048x2048 - zonalogo.com.png" alt="Logo OSIS">
       </div>
       <div class="hero">
-        <p class="eyebrow">PEMILIHAN OSIS</p>
         <h1 id="electionTitle">Memuat...</h1>
         <h2 id="schoolName">Memuat...</h2>
         <p id="period" class="muted"></p>
-        <p class="lead">Siapakah Anda?</p>
+        <p class="lead">Masuk sebagai:</p>
         <div class="choice-grid">
           <button class="choice-card" data-category="MURID">
             <span class="choice-icon">🎓</span>
-            <span class="choice-title">Murid</span>
-            <span class="choice-desc">Gunakan NIS dan Kelas</span>
+            <span class="choice-title">Siswa</span>
+            <span class="choice-desc">Gunakan NIS dan Kelas untuk memilih</span>
           </button>
           <button class="choice-card" data-category="GURU">
             <span class="choice-icon">👨‍🏫</span>
-            <span class="choice-title">Guru</span>
-            <span class="choice-desc">Gunakan NIP / ID Guru</span>
+            <span class="choice-title">Guru dan Staff</span>
+            <span class="choice-desc">Gunakan kode guru untuk memilih</span>
           </button>
         </div>
+        <p class="help-note">Jika ada kendala, konfirmasi panitia yang bertugas.</p>
       </div>
     </section>
 
@@ -43,12 +43,12 @@
         <button class="link-button" id="backHome">Kembali</button>
         <div class="section-heading">
           <p class="eyebrow">DATA PEMILIH</p>
-          <h2 id="identityTitle">Data Murid</h2>
+          <h2 id="identityTitle">Data Siswa</h2>
           <p id="identityDesc" class="muted"></p>
         </div>
         <form id="identityForm">
           <label id="identityLabel" for="identityInput">NIS</label>
-          <input id="identityInput" required autocomplete="off" placeholder="Masukkan NIS">
+          <input id="identityInput" required autocomplete="off" placeholder="Masukkan NIS" inputmode="numeric" pattern="[0-9]+">
           <div id="classField">
             <label for="classInput">Kelas</label>
             <select id="classInput" required>
@@ -67,8 +67,8 @@
       </div>
       <div class="section-heading center">
         <p class="eyebrow">SURAT SUARA</p>
-        <h2>Pilih Pasangan Calon</h2>
-        <p class="muted">Pilih satu pasangan Ketua dan Wakil Ketua OSIS.</p>
+        <h2>Pilih Paslon</h2>
+        <p class="muted">Pilih satu paslon Ketua dan Wakil Ketua OSIS.</p>
       </div>
       <div id="candidateGrid" class="candidate-grid"></div>
     </section>

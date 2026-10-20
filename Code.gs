@@ -124,7 +124,7 @@ function validateIdentity(p) {
       message:
         category === "MURID"
           ? "NIS tidak ditemukan atau tidak aktif."
-          : "NIP tidak ditemukan atau tidak aktif."
+          : "Kode guru tidak ditemukan atau tidak aktif."
     };
   }
 
@@ -187,7 +187,7 @@ function submitVote(p) {
         message:
           category === "MURID"
             ? "NIS tidak ditemukan atau tidak aktif."
-            : "NIP tidak ditemukan atau tidak aktif."
+            : "Kode guru tidak ditemukan atau tidak aktif."
       };
     }
 
