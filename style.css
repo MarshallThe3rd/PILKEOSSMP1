@@ -52,6 +52,7 @@ h1, h2, h3, p { margin-top: 0; }
 .narrow { max-width: 520px; margin: clamp(28px, 10vh, 100px) auto; padding: 32px; }
 .link-button { padding: 0; border: 0; background: transparent; color: var(--mute); font-size: 13px; font-weight: 700; }
 .link-button:hover { color: var(--ink); }
+.narrow .link-button { display: block; margin: 16px auto 0; }
 .section-heading { margin: 36px 0 28px; }
 .section-heading h2 { margin-bottom: 8px; font-size: 30px; line-height: 1.15; }
 .center { max-width: 800px; margin: 28px auto 34px; text-align: center; }
@@ -73,7 +74,7 @@ input:focus, select:focus { border: 2px solid var(--ink); box-shadow: 0 0 0 8px 
 .candidate h3 { margin: 7px 0 20px; font-family: var(--display); font-size: 40px; line-height: .95; letter-spacing: .02em; }
 .people { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .person { text-align: left; }
-.person img { width: 100%; aspect-ratio: 3 / 4; display: block; object-fit: cover; border-radius: 0; background: var(--cloud); filter: grayscale(.8); }
+.person img { width: 100%; aspect-ratio: 3 / 4; display: block; object-fit: cover; border-radius: 0; background: var(--cloud); }
 .person-name { margin-top: 9px; font-size: 13px; font-weight: 800; }
 .person-role { margin-top: 2px; color: var(--mute); font-size: 11px; }
 .candidate-body { flex: 1; padding: 24px 22px 18px; }

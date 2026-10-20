@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   $("submitVote").onclick = submitVote;
   $("identityInput").addEventListener("input", e => {
     if(state.category === "MURID") e.target.value=e.target.value.replace(/\D/g,"");
+    if(state.category === "GURU") e.target.value=e.target.value.replace(/[^a-zA-Z]/g,"");
   });
 });
 
@@ -49,6 +50,8 @@ function startIdentity(category){
   $("identityDesc").textContent=category==="MURID"?"Masukkan NIS dan kelas Anda.":"Masukkan KODE GURU Anda.";
   $("identityLabel").textContent=category==="MURID"?"NIS":"KODE GURU";
   $("identityInput").placeholder=category==="MURID"?"MASUKKAN NIS":"Masukkan KODE GURU";
+  $("identityInput").inputMode=category==="MURID"?"numeric":"text";
+  $("identityInput").pattern=category==="MURID"?"[0-9]+":"[A-Za-z]+";
   $("classField").style.display=category==="MURID"?"block":"none";
   $("classInput").required=category==="MURID";
   show("identity");
